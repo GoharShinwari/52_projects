@@ -4,10 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Rutgers GPA Calculator/title>
+    <title>Rutgers GPA Calculator</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <div class="topbar">
+      <div class="rutgers-logo">
+        <img src="rutgers-logo.png" alt="rutgers-logo">
+      </div>
+
+      <div class="title">
+        <h1>Rutgers GPA Calculator</h1>
+        <div class="description">
+          Calculate your GPA with ease
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <input type="number" id="credits" placeholder="Credits" min="0" step="1">
+      <input type="number" id="gpa" placeholder="GPA" min="0" max="4" step="0.1">
+    </div>
+
+    <div class="classes">
+      <input type="text" id="class1" placeholder="Class One">
+      <input type="text" id="class2" placeholder="Class Two">
+      <input type="text" id="class3" placeholder="Class Three">
+      <input type="text" id="class4" placeholder="Class Four">
+      <input type="text" id="class5" placeholder="Class Five">
+    </div>
+
     <script src="index.js"></script>
   </body>
 </html>
