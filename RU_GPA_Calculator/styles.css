@@ -1,8 +1,57 @@
 body {
-    background-color: rgb(203, 203, 203);
+    background-color: #5F6A72;
+    font-family: 'poppins';
+}
+
+.topbar {
+    background-color: #CC0033;
+    display: flex;
+    align-items: center;
 }
 
 .rutgers-logo img {
-    height: 50px;
-    width: 50px;
+    height: 10vh;
+    width: 10vh;
+    padding: 2vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    gap: 1vh;
+    padding: 5vh;
+}
+
+.h2 {
+    color: white;
+    font-size: 2vh;
+}
+
+.class-grade-pairs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+}
+
+.grades,
+.classes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    gap: 2vh;
+    margin-bottom: 4vh;
+}
+
+input {
+    width: 20vh;
+    padding: 1vh;
+    font-size: 2vh;
+    border: 1px solid #ccc;
+    border-radius: 0.5vh;
 }
