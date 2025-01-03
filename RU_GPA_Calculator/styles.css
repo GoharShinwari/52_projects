@@ -1,57 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    background-color: #5F6A72;
-    font-family: 'poppins';
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .topbar {
-    background-color: #CC0033;
     display: flex;
     align-items: center;
+    background-color: #e60000;
+    padding: 20px;
+    color: #fff;
 }
 
 .rutgers-logo img {
-    height: 10vh;
-    width: 10vh;
-    padding: 2vh;
+    width: 60px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.title h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.title .description {
+    font-size: 1rem;
+    opacity: 0.8;
 }
 
 .container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10vh;
-    gap: 1vh;
-    padding: 5vh;
+    justify-content: space-around;
+    padding: 40px 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 8px;
 }
 
-.h2 {
-    color: white;
-    font-size: 2vh;
+.input-group {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+.input-group h2 {
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.input-group input {
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #e60000;
+    outline: none;
 }
 
 .class-grade-pairs {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1vh;
+    padding: 20px;
+    background-color: #fff;
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.grades,
-.classes {
+.pair {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    gap: 2vh;
-    margin-bottom: 4vh;
+    justify-content: space-between;
+    margin-bottom: 15px;
 }
 
-input {
-    width: 20vh;
-    padding: 1vh;
-    font-size: 2vh;
-    border: 1px solid #ccc;
-    border-radius: 0.5vh;
+.pair input {
+    width: 48%;
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.pair input:focus {
+    border-color: #e60000;
+    outline: none;
+}
+
+.calculate-button {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.calculate-button button {
+    background-color: #e60000;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.calculate-button button:hover {
+    background-color: #cc0000;
+    transform: translateY(-2px);
+}
+
+.calculate-button button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .input-group {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .pair {
+        flex-direction: column;
+    }
+
+    .pair input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .rutgers-logo img {
+        margin-bottom: 10px;
+    }
+
+    .title h1 {
+        font-size: 1.5rem;
+    }
+
+    .title .description {
+        font-size: 0.9rem;
+    }
 }
