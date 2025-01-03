@@ -12,3 +12,5 @@ parseClasses = function() {
     classes = classes.split('\n');
     console.log(classes);
 }
+
+
