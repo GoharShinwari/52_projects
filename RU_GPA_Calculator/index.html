@@ -1,67 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rutgers GPA Calculator</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  </head>
-  <body>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    >
+</head>
+<body>
     <div class="topbar">
-      <div class="rutgers-logo">
-        <img src="rutgers-logo.png" alt="rutgers-logo">
-      </div>
-      <div class="title">
-        <h1>Rutgers GPA Calculator</h1>
-        <div class="description">
-          Calculate your GPA with ease
+        <div class="rutgers-logo">
+            <img src="rutgers-logo.png" alt="rutgers-logo">
         </div>
-      </div>
+        <div class="title">
+            <h1>Rutgers GPA Calculator</h1>
+            <div class="description">
+                Calculate your GPA with ease
+            </div>
+        </div>
     </div>
     
     <div class="container">
-      <div class="input-group">
-        <h2>Current Credits</h2>
-        <input type="number" id="credits" placeholder="Credits" min="0" step="1">
-      </div>
-      <div class="input-group">
-        <h2>Current GPA</h2>
-        <input type="number" id="gpa" placeholder="GPA" min="0" max="4" step="0.1">
-      </div>
+        <div class="input-group">
+            <h2>Current Credits</h2>
+            <input type="number" id="credits" placeholder="Credits" min="0" step="1">
+        </div>
+        <div class="input-group">
+            <h2>Current GPA</h2>
+            <input type="number" id="gpa" placeholder="GPA" min="0" max="4" step="0.01">
+        </div>
     </div>
     
-
-    <div class="class-grade-pairs">
-      <div class="pair">
-        <input type="text" id="class1" placeholder="Class One">
-        <input type="text" id="grade1" placeholder="Grade One">
-      </div>
-      <div class="pair">
-        <input type="text" id="class2" placeholder="Class Two">
-        <input type="text" id="grade2" placeholder="Grade Two">
-      </div>
-      <div class="pair">
-        <input type="text" id="class3" placeholder="Class Three">
-        <input type="text" id="grade3" placeholder="Grade Three">
-      </div>
-      <div class="pair">
-        <input type="text" id="class4" placeholder="Class Four">
-        <input type="text" id="grade4" placeholder="Grade Four">
-      </div>
-      <div class="pair">
-        <input type="text" id="class5" placeholder="Class Five">
-        <input type="text" id="grade5" placeholder="Grade Five">
-      </div>
+    <div class="class-grade-pairs" id="class-grade-pairs">
+        <div class="pair">
+            <input type="text" class="class-input" placeholder="Class One Name">
+            <input type="number" class="credit-input" placeholder="Class One Credits" min="0" step="1">
+            <input type="text" class="grade-input" placeholder="Class One Grade (e.g., A, B+, C-)">
+            <button type="button" class="remove-class">Remove</button>
+        </div>
     </div>  
     
+    <div class="add-class-button">
+        <button id="add-class">Add Class</button>
+    </div>
+    
     <div class="calculate-button">
-      <button id="calculate-button">Calculate GPA</button>
+        <button id="calculate-button">Calculate GPA</button>
     </div>
 
+    <div class="result" id="result"></div>
+
     <script src="index.js"></script>
-  </body>
+</body>
 </html>

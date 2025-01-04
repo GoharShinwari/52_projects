@@ -107,6 +107,32 @@ body {
     outline: none;
 }
 
+.add-class-button {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.add-class-button button {
+    background-color: #e60000; 
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-class-button button:hover {
+    background-color: #cc0000;
+    transform: translateY(-2px);
+}
+
+.add-class-button button:active {
+    transform: translateY(0);
+}
+
 .calculate-button {
     display: flex;
     justify-content: center;
