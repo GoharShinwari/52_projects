@@ -1,14 +1,10 @@
-calculateBtn = document.getElementById('calculate-button');
-// index.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const addClassButton = document.getElementById('add-class');
     const classGradePairsContainer = document.getElementById('class-grade-pairs');
     const calculateButton = document.getElementById('calculate-button');
     const resultsBody = document.getElementById('results-body');
-    const totalCreditsTd = document.getElementById('total-credits');
-    const totalPointsTd = document.getElementById('total-points');
-    const resultDiv = document.getElementById('result');
+    const totalCreditsSpan = document.getElementById('total-credits');
+    const resultSpan = document.getElementById('result'); 
 
     addClassButton.addEventListener('click', () => {
         const pairCount = classGradePairsContainer.getElementsByClassName('pair').length + 1;
@@ -31,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const gradeInput = document.createElement('input');
         gradeInput.type = 'text';
         gradeInput.className = 'grade-input';
-        gradeInput.placeholder = `Class ${pairCount} Grade (e.g., A, B+, C-)`;
+        gradeInput.placeholder = `Class ${pairCount} Grade (e.g., A, B+, C)`;
 
         const removeButton = document.createElement('button');
         removeButton.type = 'button';
@@ -59,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             classInput.placeholder = `Class ${i + 1} Name`;
             creditInput.placeholder = `Class ${i + 1} Credits`;
-            gradeInput.placeholder = `Class ${i + 1} Grade (e.g., A, B+, C-)`;
+            gradeInput.placeholder = `Class ${i + 1} Grade (e.g., A, B+, C)`;
         }
     }
 
@@ -94,80 +90,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let totalNewCredits = 0;
         let totalNewPoints = 0;
-        resultsBody.innerHTML = '';
 
         for (let i = 0; i < pairs.length; i++) {
             const classInput = pairs[i].getElementsByClassName('class-input')[0];
             const creditInput = pairs[i].getElementsByClassName('credit-input')[0];
             const gradeInput = pairs[i].getElementsByClassName('grade-input')[0];
 
-            const className = classInput.value.trim();
             const classCredits = parseFloat(creditInput.value.trim());
             const grade = gradeInput.value.trim().toUpperCase();
 
-            if (className === '') {
-                alert(`Please enter the name for Class ${i + 1}.`);
-                return;
-            }
-
-            if (isNaN(classCredits) || classCredits <= 0) {
-                alert(`Please enter a valid number of credits for ${className}.`);
-                return;
-            }
-
-            if (grade === '') {
-                alert(`Please enter a grade for ${className}.`);
-                return;
-            }
-
             const gradePoint = getGradePoint(grade);
             if (gradePoint === null) {
-                alert(`Invalid grade "${grade}" for ${className}. Please enter a valid grade (e.g., A, B+, C-).`);
+                alert(`Invalid grade "${grade}". Please enter a valid grade (e.g., A, B+, C).`);
                 return;
             }
 
             const points = gradePoint * classCredits;
             totalNewCredits += classCredits;
             totalNewPoints += points;
-
-            const row = document.createElement('tr');
-
-            const gradeTd = document.createElement('td');
-            gradeTd.textContent = grade;
-
-            const gradeValueTd = document.createElement('td');
-            gradeValueTd.textContent = gradePoint.toFixed(1);
-
-            const creditsTd = document.createElement('td');
-            creditsTd.textContent = `${classCredits}`;
-
-            const pointsTd = document.createElement('td');
-            pointsTd.textContent = `${points.toFixed(1)}`;
-
-            row.appendChild(gradeTd);
-            row.appendChild(gradeValueTd);
-            row.appendChild(creditsTd);
-            row.appendChild(pointsTd);
-
-            resultsBody.appendChild(row);
         }
 
         const totalCredits = currentCredits + totalNewCredits;
         const totalPoints = (currentGPA * currentCredits) + totalNewPoints;
         const newGPA = (totalPoints / totalCredits).toFixed(2);
 
-        totalCreditsTd.textContent = `${totalCredits}cr`;
-        totalPointsTd.textContent = `${totalPoints.toFixed(1)}pts`;
-        resultDiv.textContent = `Your new GPA is ${newGPA}`;
-    }); 
+        totalCreditsSpan.textContent = `${totalCredits}`;
+        resultSpan.textContent = `${newGPA}`;
+    });
 
     function getGradePoint(grade) {
         const gradePoints = {
-            'A+': 4.0,
             'A': 4.0,
-            'B+': 3.3,
+            'B+': 3.5,
             'B': 3.0,
-            'C+': 2.3,
+            'C+': 2.5,
             'C': 2.0,
             'D': 1.0,
             'F': 0.0
