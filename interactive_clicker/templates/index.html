@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <title>Interactive Website</title>
+</head>
+<body>
+    <h1>Global Counter</h1>
+    <div id="counter">{{ counter }}</div>
+    <div id="curr_users">Current Users: {{ curr_users }}</div>
+
+    <button onclick="incrementCounter()">Click</button>
+    <script>
+        var socket = io();
+        
+        function incrementCounter() {
+            socket.emit('increment');  
+        }
+
+        
+        socket.on('update_counter', function(data) { 
+            document.getElementById('counter').textContent = data.counter;
+        });
+
+        socket.on('increment_users', function(data) {
+            document.getElementById('curr_users').textContent = `Current Users: ${data.curr_users}`;
+        })
+
+        socket.on('decerement_users', function(data) {
+            document.getElementById('curr_users').textContent = `Current Users: ${data.curr_users}`;
+        })
+
+
+    </script>
+</body>
+</html>
