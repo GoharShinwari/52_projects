@@ -28,7 +28,7 @@ def increment_users():
 @socketio.on('disconnect')
 def decerement_users():
     global curr_users
-    curr_users += 1 
+    curr_users -= 1 
     emit('decerement_users', {'curr_users': curr_users}, broadcast=True)
     print(f'User disconnected. Current users: {curr_users}')
 

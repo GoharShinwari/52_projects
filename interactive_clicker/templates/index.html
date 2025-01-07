@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Interactive Website</title>
 </head>
 <body>
     <h1>Global Counter</h1>
-    <div id="counter">{{ counter }}</div>
+    <div id="counter">Clicks: {{ counter }}</div>
     <div id="curr_users">Current Users: {{ curr_users }}</div>
 
-    <button onclick="incrementCounter()">Click</button>
+    <div class="increment-button">    
+        <button id="increment" onclick="incrementCounter()">Click</button>
+    </div>
     <script>
         var socket = io();
         
@@ -21,7 +24,7 @@
 
         
         socket.on('update_counter', function(data) { 
-            document.getElementById('counter').textContent = data.counter;
+            document.getElementById('counter').textContent = `Clicks: ${data.counter}`;
         });
 
         socket.on('increment_users', function(data) {

@@ -1,0 +1,51 @@
+body {
+    background-color: rgb(25, 23, 23);
+}
+
+h1 {
+    color: goldenrod;
+    font-size: 5vh;
+    text-align: center;
+    justify-content: center;
+    margin: 5vh;
+}
+
+#counter, #curr_users {
+    color: goldenrod;
+    font-size: 3vh;
+    text-align: center;
+    justify-content: center;
+}
+
+.increment-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5vh;
+}
+
+#increment {
+    background-color: goldenrod;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 16px;
+    text-align: center;
+  }
+  
+  #increment:hover {
+    background-color: darkgoldenrod;
+  }
+  
+  #increment:active {
+    background-color: goldenrod;
+    transform: scale(0.98);
+  }
+  
+  #increment:disabled {
+    background-color: lightgray;
+    cursor: not-allowed;
+  }
