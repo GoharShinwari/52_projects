@@ -10,32 +10,17 @@
 <body>
     <h1>Global Counter</h1>
     <div id="counter">Clicks: {{ counter }}</div>
+    <div id="minionCount">CPS: {{ minionCount }}</div>
     <div id="curr_users">Current Users: {{ curr_users }}</div>
 
-    <div class="increment-button">    
+    <div class="increment-button">
         <button id="increment" onclick="incrementCounter()">Click</button>
     </div>
-    <script>
-        var socket = io();
-        
-        function incrementCounter() {
-            socket.emit('increment');  
-        }
 
-        
-        socket.on('update_counter', function(data) { 
-            document.getElementById('counter').textContent = `Clicks: ${data.counter}`;
-        });
+    <div id="buyMinionDiv">
+        <button id="buyMinion">Buy Minion (99 Clicks)</button>
+    </div>
 
-        socket.on('increment_users', function(data) {
-            document.getElementById('curr_users').textContent = `Current Users: ${data.curr_users}`;
-        })
-
-        socket.on('decerement_users', function(data) {
-            document.getElementById('curr_users').textContent = `Current Users: ${data.curr_users}`;
-        })
-
-
-    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

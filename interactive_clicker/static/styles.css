@@ -10,21 +10,21 @@ h1 {
     margin: 5vh;
 }
 
-#counter, #curr_users {
+#counter, #minionCount, #curr_users {
     color: goldenrod;
     font-size: 3vh;
     text-align: center;
     justify-content: center;
 }
 
-.increment-button {
+.increment-button, #buyMinionDiv {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 5vh;
 }
 
-#increment {
+#increment, #buyMinion {
     background-color: goldenrod;
     border: none;
     border-radius: 6px;
@@ -36,16 +36,16 @@ h1 {
     text-align: center;
   }
   
-  #increment:hover {
+  #increment:hover, #buyMinion:hover {
     background-color: darkgoldenrod;
   }
   
-  #increment:active {
+  #increment:active, #buyMinion:active{
     background-color: goldenrod;
     transform: scale(0.98);
   }
   
-  #increment:disabled {
+  #increment:disabled, #buyMinion:disabled {
     background-color: lightgray;
     cursor: not-allowed;
   }
